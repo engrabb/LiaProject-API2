@@ -600,7 +600,27 @@ a {
 @media(max-width: 535px) {
     .grid{
         display: grid;
-        grid-template-rows: 100px 505px 45px 535px 200px;
+        grid-template-areas: 
+        "head"
+        "inputArea"
+        "editBtns"
+        "output"
+        "apiCell";
+        grid-template-rows: 100px 505px 52px 505px 190px;
+        /* grid-template-rows: 100px 505px 45px 535px 200px; */
+    }
+    .firstGrid > textarea{
+        grid-area: inputArea;
+    }
+    .secGrid{
+        grid-area: editBtns;
+    }
+    .firstGrid > .outputRelative{
+        grid-area: output;
+        width: 305px;
+    }
+    .forthGrid{
+        grid-area: apiCell;
     }
     .inOutSize{
         width: 305px;
@@ -611,10 +631,6 @@ a {
     }
     .content-grid {
         grid-template-columns: 35px 235px 35px;
-    }
-    .outputRelative {
-        height: 505px;
-        width: 305px;
     }
     .promptInput{
         width: 305px;

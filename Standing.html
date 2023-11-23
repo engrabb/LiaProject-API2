@@ -110,7 +110,7 @@
         <div class="output-arrows-dots">
             <div class="firstGrid">
                 <textarea id="editor" class="inOutSize" onkeyup="updatePreview()"></textarea>
-                <div class="outputRelative">
+                <output class="outputRelative">
                     <div id="contentBox" class="inOutSize">
                         <div class="content-grid">
                             <div class="setFlex">
@@ -147,11 +147,11 @@
                             <button class="carousel__indicator current-dot"></button>
                         </div>
                     </div>
-                </div>
+                </output>
             </div>
         </div>
         <div class="secGrid">
-            <div class="editLayout">
+            <div id ="editBtns" class="editLayout">
                 <div class="fontSelect">
                     <select id="fontSelect" class="input select-menu">
                         <option value='poppins'>Poppins (Default)</option>
@@ -178,7 +178,7 @@
                 </div>
             </div>
         </div>
-        <div class="forthGrid">
+        <div ïd="forthG" class="forthGrid">
             <div class="prompt">
                 <textarea id="promptInput" class="promptInput" placeholder="Prompt:"></textarea>
             </div>
