@@ -1,3 +1,12 @@
+
+    // Your code here
+function myPrompt(){
+    const promptI = document.getElementById('promptInput');
+    const inputValue = promptI.value;
+    console.log(inputValue);
+}
+    
+
 async function getData() {
     const response = await fetch('http://127.0.0.1:5000/api/data');
     const data = await response.json();
@@ -5,7 +14,9 @@ async function getData() {
 }
 
 async function postData() {
-    const data = { data: 'Some data to send to the backend' };
+    const promptI = document.getElementById('promptInput');
+    const promptValue = promptI.value;
+    const data = { data: promptValue };
 
     const response = await fetch('http://127.0.0.1:5000/api/post_data', {
         method: 'POST',
