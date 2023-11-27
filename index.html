@@ -9,7 +9,6 @@
     <script src="./js/buildAI.js"></script>
     <script src="./js/confirmation.js"></script>
     <link rel="stylesheet" href="./style/preview.css">
-    <link rel="stylesheet" href="./style/pocketBook.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"
         integrity="sha512-GsLlZN/3F2ErC5ifS5QtgpiJtWd43JWSuIgh7mbzZ8zBps+dvLusV+eNQATqgA/HdeKFVgA5v3S/cIrLF7QnIg=="
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
@@ -177,6 +176,9 @@
                         <div id="carouselBtn" class="carousel__nav is-hidden">
                             <button class="carousel__indicator current-dot"></button>
                         </div>
+                        <button onclick="postData()">Generate Image</button>
+                        <div id="imageContainer"></div>
+                        <button onclick="myPrompt()">data value</button>
                     </div>
                 </div>
             </div>
