@@ -107,106 +107,105 @@
     </dialog>
 
     <div class="grid" id="container">
-        <div id="containerBlack">
-            <div class="firstGrid">
-                <textarea id="editor" class="inOutSize" onkeyup="updatePreview()"></textarea>
-            </div>
-            <div class="secGrid">
-                <div class="layout-select">
-                    <div class="fontSelect">
-                        <select id="fontSelect" class="input select-menu">
-                            <option value='poppins'>Poppins (Default)</option>
-                            <option value='butterflyKids'>Butterfly Kids</option>
-                            <option value='heebo'>Heebo</option>
-                            <option value='homemadeApple'>Homemade Apple</option>
-                            <option value='inconsolata'>Inconsolata</option>
-                            <option value='marcellus'>Marcellus</option>
-                            <option value='tenorSans'>Tenor Sans</option>
-                            <option value='theGirlNextDoor'>The Girl Next Door</option>
-                        </select>
-                    </div>
-                    <li class="nav-item"></li>
-                    <a href="#" class="nav-link">
-                        <button class="input previewBtn select-menu select" type="button"
-                            onclick="document.getElementById('uploadButton').click();">Insert
-                            Image</button>
-                        <input class="img-input" type="file" id="uploadButton" hidden="hidden"></input>
-                    </a>
-                    </li>
-                    <div class="newPageBtn">
-                        <button id="newPageBtn" class="openClose-btn btnShadow" onclick="creatNewPage()">New
-                            Page</button>
-                    </div>
+        <div class="firstGrid">
+            <textarea id="editor" class="inOutSize" onkeyup="updatePreview()"></textarea>
+        </div>
+        <div class="secGrid">
+            <div class="layout-select">
+                <div class="fontSelect">
+                    <select id="fontSelect" class="input select-menu">
+                        <option value='poppins'>Poppins (Default)</option>
+                        <option value='butterflyKids'>Butterfly Kids</option>
+                        <option value='heebo'>Heebo</option>
+                        <option value='homemadeApple'>Homemade Apple</option>
+                        <option value='inconsolata'>Inconsolata</option>
+                        <option value='marcellus'>Marcellus</option>
+                        <option value='tenorSans'>Tenor Sans</option>
+                        <option value='theGirlNextDoor'>The Girl Next Door</option>
+                    </select>
+                </div>
+                <li class="nav-item"></li>
+                <a href="#" class="nav-link">
+                    <button class="input previewBtn select-menu select" type="button"
+                        onclick="document.getElementById('uploadButton').click();">Insert
+                        Image</button>
+                    <input class="img-input" type="file" id="uploadButton" hidden="hidden"></input>
+                </a>
+                </li>
+                <div class="newPageBtn">
+                    <button id="newPageBtn" class="openClose-btn btnShadow" onclick="creatNewPage()">New
+                        Page</button>
+                </div>
 
-                </div>
             </div>
-            <div class="output-arrows-dots">
-                <div class="thirdGrid">
-                    <div class="outputRelative">
-                        <div id="contentBox" class="inOutSize">
-                            <div class="content-grid">
-                                <div class="setFlex">
-                                    <div id="leftArrow">
-                                        <button class="carousel__button carousel__button--left is-hidden">
-                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
-                                                fill="currentColor" class="bi bi-arrow-left-short arrows"
-                                                viewBox="0 0 16 16">
-                                                <path fill-rule="evenodd"
-                                                    d="M12 8a.5.5 0 0 1-.5.5H5.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L5.707 7.5H11.5a.5.5 0 0 1 .5.5z" />
-                                            </svg>
-                                        </button>
-                                    </div>
-                                </div>
-                                <div class="empty">
-                                </div>
-                                <div class="setFlex">
-                                    <div id="rightArrow">
-                                        <button class="carousel__button carousel__button--right is-hidden">
-                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
-                                                fill="currentColor" class="bi bi-arrow-right-short arrows"
-                                                viewBox="0 0 16 16">
-                                                <path fill-rule="evenodd"
-                                                    d="M4 8a.5.5 0 0 1 .5-.5h5.793L8.146 5.354a.5.5 0 1 1 .708-.708l3 3a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708-.708L10.293 8.5H4.5A.5.5 0 0 1 4 8z" />
-                                            </svg>
-                                        </button>
-                                    </div>
+        </div>
+        <div class="output-arrows-dots">
+            <div class="thirdGrid">
+                <div class="outputRelative">
+                    <div id="contentBox" class="inOutSize">
+                        <div class="content-grid">
+                            <div class="setFlex">
+                                <div id="leftArrow">
+                                    <button class="carousel__button carousel__button--left is-hidden">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                            fill="currentColor" class="bi bi-arrow-left-short arrows"
+                                            viewBox="0 0 16 16">
+                                            <path fill-rule="evenodd"
+                                                d="M12 8a.5.5 0 0 1-.5.5H5.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L5.707 7.5H11.5a.5.5 0 0 1 .5.5z" />
+                                        </svg>
+                                    </button>
                                 </div>
                             </div>
-                            <ul class="output-area" id="content">
-                                <li id="preview" class="current-page textOutput img output-area"></li>
-                            </ul>
-                            <div id="carouselBtn" class="carousel__nav is-hidden">
-                                <button class="carousel__indicator current-dot"></button>
+                            <div class="empty">
+                            </div>
+                            <div class="setFlex">
+                                <div id="rightArrow">
+                                    <button class="carousel__button carousel__button--right is-hidden">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                            fill="currentColor" class="bi bi-arrow-right-short arrows"
+                                            viewBox="0 0 16 16">
+                                            <path fill-rule="evenodd"
+                                                d="M4 8a.5.5 0 0 1 .5-.5h5.793L8.146 5.354a.5.5 0 1 1 .708-.708l3 3a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708-.708L10.293 8.5H4.5A.5.5 0 0 1 4 8z" />
+                                        </svg>
+                                    </button>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                </div>
-            </div>
-            <div class="forthGrid">
-                <div class="prompt">
-                    <textarea id="promptInput" class="promptInput" placeholder="Prompt:"></textarea>
-                </div>
-                <div class="previewSelect">
-                    <div class="layout-select">
-                        <div class="generateBtn">
-                            <button id="generateButton" class="openClose-btn btnShadow">Click to Generate</button>
+                        <ul class="output-area" id="content">
+                            <li id="preview" class="current-page textOutput img output-area"></li>
+                        </ul>
+                        <div id="carouselBtn" class="carousel__nav is-hidden">
+                            <button class="carousel__indicator current-dot"></button>
                         </div>
-                        <select id="styleSelect" class="input">
-                            <option value="Fantasy">Fantasy</option>
-                            <option value="Dark-fantasy">Dark-fantasy</option>
-                            <option value="Childish-fantasy">Childish fantasy</option>
-                            <option value="Sci-fi">Sci-fi</option>
-                            <option value="Pixel-art">Pixel-art</option>
-                            <option value="Oil-painting">Oil-painting</option>
-                            <option value="Gore">Gore</option>
-                        </select>
                     </div>
-                </div>
-                <div class="preview">
-                    <button id="previewBtn" class="openClose-btn btnShadow input">Preview</button>
                 </div>
             </div>
         </div>
+        <div class="forthGrid">
+            <div class="prompt">
+                <textarea id="promptInput" class="promptInput" placeholder="Prompt:"></textarea>
+            </div>
+            <div class="previewSelect">
+                <div class="layout-select">
+                    <div class="generateBtn">
+                        <button id="generateButton" class="openClose-btn btnShadow">Click to Generate</button>
+                    </div>
+                    <select id="styleSelect" class="input">
+                        <option value="Fantasy">Fantasy</option>
+                        <option value="Dark-fantasy">Dark-fantasy</option>
+                        <option value="Childish-fantasy">Childish fantasy</option>
+                        <option value="Sci-fi">Sci-fi</option>
+                        <option value="Pixel-art">Pixel-art</option>
+                        <option value="Oil-painting">Oil-painting</option>
+                        <option value="Gore">Gore</option>
+                    </select>
+                </div>
+            </div>
+            <div class="preview">
+                <button id="previewBtn" class="openClose-btn btnShadow input">Preview</button>
+            </div>
+        </div>
+
     </div>
 
     </div>
