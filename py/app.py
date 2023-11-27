@@ -1,7 +1,7 @@
 from flask import Flask, jsonify, request
 from openai import OpenAI
-from dotenv import load_dotenv
 import os
+from dotenv import load_dotenv
 
 load_dotenv()
 
@@ -52,9 +52,6 @@ def generate_image():
             return response
         except Exception as e:
             return jsonify({'error': str(e)})
-    response.headers.add('Access-Control-Allow-Origin', '*')
-    response.headers.add('Access-Control-Allow-Methods', 'POST, OPTIONS')
-    response.headers.add('Access-Control-Allow-Headers', 'Content-Type')
 
 if __name__ == '__main__':
     app.run(debug=True)
