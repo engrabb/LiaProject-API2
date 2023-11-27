@@ -14,18 +14,26 @@ async function getData() {
 }
 
 async function postData() {
-    const promptI = document.getElementById('promptInput');
-    const promptValue = promptI.value;
-    const data = { data: promptValue };
 
-    const response = await fetch('http://127.0.0.1:5000/api/post_data', {
+    const prompt = document.getElementById('promptInput').value;
+
+    const response = await fetch('/generate_image', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
         },
-        body: JSON.stringify(data),
+        body: JSON.stringify({ prompt: prompt }),
     });
 
-    const result = await response.json();
-    console.log(result);
+    const data = await response.json();
+
+    if (data.error) {
+        console.error(data.error);
+    } else {
+        const imgElement = document.createElement('img');
+        imgElement.src = data.image_url;
+
+        document.getElementById('imageContainer').innerHTML = '';
+        document.getElementById('imageContainer').appendChild(imgElement);
+    }
 }
