@@ -14,26 +14,35 @@ async function getData() {
 }
 
 async function postData() {
-
     const prompt = document.getElementById('promptInput').value;
 
-    const response = await fetch('/generate_image', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({ prompt: prompt }),
+
+    const optionsResponse = await fetch('http://127.0.0.1:5000/api/post_data', {
+        method: 'OPTIONS',
     });
 
-    const data = await response.json();
 
-    if (data.error) {
-        console.error(data.error);
+    if (optionsResponse.ok) {
+        const response = await fetch('http://127.0.0.1:5000/api/post_data', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({ data: prompt }),
+        });
+
+        const data = await response.json();
+
+        if (data.error) {
+            console.error(data.error);
+        } else {
+            const imgElement = document.createElement('img');
+            imgElement.src = data.image_url;
+
+            document.getElementById('imageContainer').innerHTML = '';
+            document.getElementById('imageContainer').appendChild(imgElement);
+        }
     } else {
-        const imgElement = document.createElement('img');
-        imgElement.src = data.image_url;
-
-        document.getElementById('imageContainer').innerHTML = '';
-        document.getElementById('imageContainer').appendChild(imgElement);
+        console.error('Preflight request failed');
     }
 }
