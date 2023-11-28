@@ -1,8 +1,8 @@
 
 async function postData() {
     const style = document.getElementById('styleSelect').value;
-    const promptI = document.getElementById('promptInput').value + ", " ;
-    const prompt = promptI + style;
+    const promptI = document.getElementById('promptInput').value;
+    const prompt = promptI +", "+ style;
 
 
     const optionsResponse = await fetch('http://127.0.0.1:5000/api/post_data', {
@@ -26,6 +26,7 @@ async function postData() {
         } else {
             const imgElement = document.createElement('img');
             imgElement.src = data.image_url;
+            localStorage.setItem(promptI.value, imgElement);
 
             document.getElementById('imageContainer').innerHTML = '';
             document.getElementById('imageContainer').appendChild(imgElement);
