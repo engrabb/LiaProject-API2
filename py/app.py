@@ -1,13 +1,16 @@
 from flask import Flask, jsonify, request
+from flask_cors import CORS
 from openai import OpenAI
+import openai
 import os
 from dotenv import load_dotenv
 
 load_dotenv()
 
 app = Flask(__name__)
+CORS(app, resources={r"/*": {"origins": "*", "methods": "OPTIONS,POST,GET", "headers": "Content-Type"}})
 
-OpenAI.api_key = os.getenv('MY_KEY')
+openai.api_key = os.getenv('MY_KEY')
 
 @app.route('/')
 def index():
@@ -35,35 +38,31 @@ def generate_image():
             prompt = received_data
 
 
-            response = OpenAI.Completion.create(
-                model="image-alpha-001",
+            response = openai.Completion.create(
+                model="dall-e-3",
                 prompt=prompt,
                 n=1,
                 stop=None,
                 temperature=0.7,
             )
+            print(response)
 
-            image_url = response['choices'][0]['text'].strip()
-            response = jsonify({'image_url': image_url})
-            response.headers.add('Access-Control-Allow-Origin', '*')
-            response.headers.add('Access-Control-Allow-Methods', 'POST, OPTIONS')
-            response.headers.add('Access-Control-Allow-Headers', 'Content-Type')
-            
-            return response
+            if 'choices' in response and response['choices']:
+                image_url = response['choices'][0].get('text', '').strip()
+                if image_url:
+                    response_data = {'image_url': image_url}
+                else:
+                    response_data = {'error': 'Image URL not found in response'}
+            else:
+                response_data = {'error': 'Unexpected response structure from OpenAI API'}
+
+            # Always return a valid response
+            response = jsonify(response_data)
+    
         except Exception as e:
-            return jsonify({'error': str(e)})
+            response = jsonify({'error': str(e)})
+
+    return response
 
 if __name__ == '__main__':
     app.run(debug=True)
-    
-client = OpenAI()
-
-response = client.images.generate(
-    model="dall-e-3",
-    prompt="a white siamese cat",
-    size="1024x1024",
-    quality="standard",
-    n=1,
-)
-
-image_url = response.data[0].url
