@@ -1,5 +1,4 @@
 from flask import Flask, jsonify, request
-from flask_cors import CORS
 from openai import OpenAI
 import openai
 import os
@@ -8,9 +7,15 @@ from dotenv import load_dotenv
 load_dotenv()
 
 app = Flask(__name__)
-CORS(app, resources={r"/*": {"origins": "*", "methods": "OPTIONS,POST,GET", "headers": "Content-Type"}})
 
 openai.api_key = os.getenv('MY_KEY')
+
+@app.after_request
+def apply_cors_headers(response):
+    response.headers.add('Access-Control-Allow-Origin', '*')
+    response.headers.add('Access-Control-Allow-Methods', 'POST, OPTIONS')
+    response.headers.add('Access-Control-Allow-Headers', 'Content-Type')
+    return response
 
 @app.route('/')
 def index():
@@ -28,8 +33,8 @@ def get_data():
 def generate_image():
     print(request.method)
     if request.method == 'OPTIONS':
-        
         response = jsonify({'message': 'Preflight request handled'})
+        
     else:
         try:
             req_data = request.get_json()
@@ -55,7 +60,7 @@ def generate_image():
                     response_data = {'error': 'Image URL not found in response'}
             else:
                 response_data = {'error': 'Unexpected response structure from OpenAI API'}
-
+                
             # Always return a valid response
             response = jsonify(response_data)
     
