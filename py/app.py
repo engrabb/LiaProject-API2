@@ -2,6 +2,8 @@ from flask import Flask, jsonify, request
 from openai import OpenAI
 import openai
 import os
+import requests
+import json
 from dotenv import load_dotenv
 
 load_dotenv()
@@ -15,18 +17,6 @@ def apply_cors_headers(response):
     response.headers.add('Access-Control-Allow-Origin', '*')
     response.headers.add('Access-Control-Allow-Methods', 'POST, OPTIONS')
     response.headers.add('Access-Control-Allow-Headers', 'Content-Type')
-    return response
-
-@app.route('/')
-def index():
-    return 'Hello, World!'
-
-@app.route('/api/data', methods=['GET'])
-def get_data():
-    data = {'message': 'Data from the backend'}
-    response = jsonify(data)
-    response.headers.add('Access-Control-Allow-Origin', '*')
-    
     return response
 
 @app.route('/api/post_data', methods=['POST', 'OPTIONS'])
@@ -43,23 +33,30 @@ def generate_image():
             prompt = received_data
 
 
-            response = openai.Completion.create(
-                model="dall-e-3",
-                prompt=prompt,
-                n=1,
-                stop=None,
-                temperature=0.7,
-            )
-            print(response)
+            api_url = 'https://api.openai.com/v1/images/generations'
+            headers = {
+                'Content-Type': 'application/json',
+                'Authorization': f'Bearer {openai.api_key}'
+            }
+            data = {
+                "model": "dall-e-3",
+                "prompt": prompt,
+                "n": 1,
+                "size": "1024x1024"
+            }
 
-            if 'choices' in response and response['choices']:
-                image_url = response['choices'][0].get('text', '').strip()
-                if image_url:
+            response = requests.post(api_url, headers=headers, data=json.dumps(data))
+
+            if response.status_code == 200:
+                result = response.json()
+                if 'data' in result and len(result['data']) > 0:
+                    image_url = result['data'][0]['url']
                     response_data = {'image_url': image_url}
                 else:
                     response_data = {'error': 'Image URL not found in response'}
             else:
-                response_data = {'error': 'Unexpected response structure from OpenAI API'}
+                response_data = {'error': f'Error: {response.status_code}, {response.text}'}
+                
                 
             # Always return a valid response
             response = jsonify(response_data)
