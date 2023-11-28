@@ -176,9 +176,7 @@
                         <div id="carouselBtn" class="carousel__nav is-hidden">
                             <button class="carousel__indicator current-dot"></button>
                         </div>
-                        <button onclick="postData()">Generate Image</button>
                         <div id="imageContainer"></div>
-                        <button onclick="myPrompt()">data value</button>
                     </div>
                 </div>
             </div>
@@ -190,7 +188,7 @@
             <div class="previewSelect">
                 <div class="layout-select">
                     <div class="generateBtn">
-                        <button id="generateButton" class="openClose-btn btnShadow">Click to Generate</button>
+                        <button class="openClose-btn btnShadow" onclick="postData()">Click to Generate</button>
                     </div>
                     <select id="styleSelect" class="input">
                         <option value="Fantasy">Fantasy</option>

@@ -29,7 +29,7 @@ def generate_image():
         try:
             req_data = request.get_json()
             received_data = req_data.get('data', 'No data received')
-  
+
             prompt = received_data
 
 
