@@ -6,8 +6,6 @@ import requests
 import json
 from dotenv import load_dotenv
 
-test
-
 load_dotenv()
 
 app = Flask(__name__)
