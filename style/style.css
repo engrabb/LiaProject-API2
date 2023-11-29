@@ -192,14 +192,7 @@ label {
     min-height: 100vh;
     flex-direction: column;
     overflow: hidden;
-    opacity: 10%;
-    z-index: 1;
-
-}
-
-#containerBlack {
-    background-color: black;
-    opacity: 100%;
+    opacity: 90%;
 }
 
 .btnBox {
@@ -305,7 +298,7 @@ label {
     border-radius: 10px;
     list-style: none;
     border: 2px solid #17313a;
-    background: white;
+    background: white; 
     color: black(0, 0%, 100%, .9);
     font-size: 21px;
     font-family: "sofia-pro", sans-serif;
