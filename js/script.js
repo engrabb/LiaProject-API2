@@ -1,3 +1,6 @@
+window.onbeforeunload = function () {
+    return "Are you sure you want to refresh this page?";
+};
 var textKey = [];
 var textKeyIndex = 0;
 
@@ -497,6 +500,3 @@ function chosePage() {
     const Text = localStorage.getItem(window.textKey[textKeyIndex].value);
     document.getElementById("editor").value = Text.value;
 }
-
-
-

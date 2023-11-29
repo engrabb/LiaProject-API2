@@ -135,7 +135,6 @@
                     <button id="newPageBtn" class="openClose-btn btnShadow" onclick="creatNewPage()">New
                         Page</button>
                 </div>
-
             </div>
         </div>
         <div class="output-arrows-dots">
@@ -171,29 +170,25 @@
                             </div>
                         </div>
                         <ul class="output-area" id="content">
-                            <li id="preview" class="current-page textOutput img output-area"></li>
+                            <li id="preview" class="current-page textOutput output-area"></li>
                         </ul>
                         <div id="carouselBtn" class="carousel__nav is-hidden">
                             <button class="carousel__indicator current-dot"></button>
                         </div>
-                        <button onclick="postData()">Generate Image</button>
-                        <div id="imageContainer"></div>
-                        <button onclick="myPrompt()">data value</button>
                     </div>
                 </div>
             </div>
         </div>
         <div class="forthGrid">
-            <div class="prompt">
-                <textarea id="promptInput" class="promptInput" placeholder="Prompt:"></textarea>
-            </div>
             <div class="previewSelect">
                 <div class="layout-select">
                     <div class="generateBtn">
-                        <button id="generateButton" class="openClose-btn btnShadow">Click to Generate</button>
+                        <button class="openClose-btn btnShadow" onclick="postData()">Click to Generate</button>
                     </div>
                     <select id="styleSelect" class="input">
                         <option value="Fantasy">Fantasy</option>
+                        <option value="Hyper-Cinema">Realism</option>
+                        <option value="Manga">Manga</option>
                         <option value="Dark-fantasy">Dark-fantasy</option>
                         <option value="Childish-fantasy">Childish fantasy</option>
                         <option value="Sci-fi">Sci-fi</option>
@@ -207,9 +202,7 @@
                 <button id="previewBtn" class="openClose-btn btnShadow input">Preview</button>
             </div>
         </div>
-
     </div>
-
     </div>
     <div class="footer" id="footerDiv"></div>
     <script src="./js/carousel.js"></script>
