@@ -1,3 +1,6 @@
+window.onbeforeunload = function () {
+    return "Are you sure you want to refresh this page?";
+};
 var textKey = [];
 var textKeyIndex = 0;
 
