@@ -500,6 +500,3 @@ function chosePage() {
     const Text = localStorage.getItem(window.textKey[textKeyIndex].value);
     document.getElementById("editor").value = Text.value;
 }
-
-
-
