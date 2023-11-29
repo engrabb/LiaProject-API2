@@ -248,7 +248,8 @@ label {
 .previewBtn,
 .input,
 .tips,
-.save-btn {
+.save-btn,
+.openClose-btn {
     font-family: 'Open Sans', sans-serif;
     font-size: 14px;
     background-color: rgb(56, 52, 244);
