@@ -1,119 +1,59 @@
-document.addEventListener("DOMContentLoaded", function () {
-    const textEditor = document.querySelector('#editor');
-    const generateButton = document.getElementById("generateButton");
-    const imageContainer = document.getElementById("imageContainer");
-    const getPicture = document.getElementById("promptInput");
-    const basePromptStyle = document.getElementById("styleSelect");
-    let promptStyle = ", Fantasy";
-    const saveButton = document.getElementById("saveGeneratedIMG")
-    let fetchedIMG = "";
+
+async function postData() {
+    const style = document.getElementById('styleSelect').value;
+    const textValue = document.getElementById('editor');
+    const prompt = textValue.value +", "+ style;
 
 
-
-    basePromptStyle.addEventListener('change', function () {
-        const selectedStyle = this.value;
-
-        switch (selectedStyle) {
-            case 'Pixel-art':
-                promptStyle = ", Pixel-art";
-                break;
-            case 'Fantasy':
-                promptStyle = ", Fantasy";
-                break;
-            case 'Sci-fi':
-                promptStyle = ", Sci-fi";
-                break;
-            case 'Dark-fantasy':
-                promptStyle = ", Dark Fantasy";
-                break;
-            case 'Childish-fantasy':
-                promptStyle = ", Childish fantasy";
-                break;
-            case 'Gore':
-                promptStyle = ", gore";
-                break;
-            case 'Reality-based':
-                promptStyle = ", Reality-based";
-                break;
-            case 'Oil-painting':
-                promptStyle = ", Oil-Painting";
-                break;
-        }
-        selectedStyle = promptStyle;
+    const optionsResponse = await fetch('http://127.0.0.1:5000/api/post_data', {
+        method: 'OPTIONS',
     });
 
 
-    generateButton.addEventListener("click", async () => {
-        try {
-            const response = await fetch("https://stablediffusionapi.com/api/v3/text2img", {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json"
-                },
-                body: JSON.stringify({
-                    "key": "8VmbbQP624v2qxel6v5Lzy1GKbeTONX8LOFtiY6QsMDyNbbW6mSwIrtBMNHM",
-                    "prompt": getPicture.value + promptStyle,
-                    "negative_prompt": null,
-                    "width": "1024",
-                    "height": "320",
-                    "samples": "1",
-                    "num_inference_steps": "20",
-                    "seed": null,
-                    "guidance_scale": 7.5,
-                    "safety_checker": "yes",
-                    "multi_lingual": "no",
-                    "panorama": "no",
-                    "self_attention": "no",
-                    "upscale": "no",
-                    "embeddings_model": null,
-                    "webhook": null,
-                    "track_id": null
-                })
-            });
+    if (optionsResponse.ok) {
+        const response = await fetch('http://127.0.0.1:5000/api/post_data', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({ data: prompt }),
+        });
 
-            if (response.ok) {
-                console.log(getPicture.value + promptStyle);
-                const data = await response.json();
-                const imageUrl = data.output[0];
-                localStorage.setItem(getPicture.value, imageUrl);
-                //imageContainer.innerHTML = `<img src="${imageUrl}" alt="Generated Image">`;
-                const newText = `![](${getPicture.value})`;
-                textEditor.value += newText;
-                updatePreview();
+        const data = await response.json();
 
-            }
-            else {
-                console.error("API request failed.");
-            }
+        if (data.error) {
+            console.error(data.error);
+        } else {
+            const background = document.querySelector('.current-page');
+            const imgElement = document.createElement('img');
+            const textArray = textValue.value.split('---').at(-1);
+            imgElement.src = data.image_url;
+            localStorage.setItem(textArray, imgElement.src);
+            const pic = localStorage.getItem(textArray);
+            background.style.background = `url(${pic})`;
+
+            // const newText = `![](${promptI})`;
+            // textValue.value += newText;
+            updatePreview();
+
         }
-        catch (error) {
-            console.error("An error occurred:", error);
-        }
-    });
-    saveButton.addEventListener("click", function () {
-        const fileName = imageContainer.files[0].name;
-        console.log(fileName);
-        var a = document.createElement("a");
-        a.href = imageContainer.src;
+    } else {
+        console.error('Preflight request failed');
+    }
+}
 
-        a.download = `${fileName}.jpg`;
-        a.click();
-        ///reader.readAsDataURL();
+function showPic(){
+    const input = document.getElementById('editor');
+    const background = document.querySelector('.current-page');
+    const pic = localStorage.getItem(input.value);
 
+    const textArray = input.value.split('---').at(-1);
 
-        ///const inputImg = document.querySelector('.img-input');
+    // console.log(input);
+    console.log(background);
+    // console.log(pic);
+    console.log(textArray);
 
-        ///inputImg.addEventListener('change', saveImg);
-    });
+    // background.style.background = `url(${pic})`;
 
-});
-
-/*reader.addEventListener('load', () => {
-    const fileName = inputImg.files[0].name;
-    localStorage.setItem(fileName, reader.result);
-    const allText = editText.value;
-    const newText = `![](${fileName})`;
-    const updatedText = allText + newText;
-    editText.value = updatedText;
-    updatePreview();
-});*/
+}
