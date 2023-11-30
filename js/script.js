@@ -6,6 +6,7 @@ var textKeyIndex = 0;
 
 const appliedFonts = [];
 let pageIndex = 0;
+let pIndex = 1;
 
 document.addEventListener("DOMContentLoaded", function () {
 
@@ -185,6 +186,8 @@ function createPages(editorValue) {
     while (occurrences.length > pages.length) {
         const newLi = document.createElement('li');
         newLi.className = 'textOutput';
+        newLi.classList.add(`page${pIndex}`);
+        pIndex++;
         track.appendChild(newLi);
         track.appendChild(newLi);
         pages.push(newLi); // Add the new page to the pages array
