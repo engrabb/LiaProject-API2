@@ -2,7 +2,7 @@
 async function postData() {
     const style = document.getElementById('styleSelect').value;
     const textValue = document.getElementById('editor');
-    const prompt = textValue.value +", "+ style;
+    const prompt = textValue.value + ", " + style;
 
 
     const optionsResponse = await fetch('http://127.0.0.1:5000/api/post_data', {
@@ -31,9 +31,11 @@ async function postData() {
             localStorage.setItem(textArray, imgElement.src);
             const pic = localStorage.getItem(textArray);
             background.style.background = `url(${pic})`;
+            background.style.width = "100%";
+            background.style.height = "100%";
+            background.style.backgroundRepeat = "no-repeat";
+            background.style.backgroundPosition = "center center"
 
-            // const newText = `![](${promptI})`;
-            // textValue.value += newText;
             updatePreview();
 
         }
@@ -42,12 +44,19 @@ async function postData() {
     }
 }
 
-function showPic(){
+function testButton() {
     const input = document.getElementById('editor');
     const background = document.querySelector('.current-page');
-    const pic = localStorage.getItem(input.value);
-
     const textArray = input.value.split('---').at(-1);
+
+    const pic = localStorage.getItem(textArray);
+
+    background.style.background = `url(${pic})`;
+    background.style.backgroundSize = "cover";
+    background.style.width = "100%";
+    background.style.height = "100%";
+    background.style.backgroundRepeat = "no-repeat";
+    background.style.backgroundPosition = "center center"
 
     // console.log(input);
     console.log(background);

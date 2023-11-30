@@ -318,7 +318,6 @@ label {
 }
 
 .textOutput img {
-    position: absolute;
     width: 1024px;
     left: 0;
     bottom: 0;
@@ -331,9 +330,11 @@ label {
 }
 
 .current-page {
+    position: relative;
     display: block;
     z-index: 1;
 }
+
 
 .carousel__nav {
     margin-top: 2px;

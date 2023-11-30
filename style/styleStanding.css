@@ -230,10 +230,12 @@ label {
 .generateBtn button,
 .previewBtn,
 .input,
-.tips {
+.tips,
+.save-btn,
+.openClose-btn {
     font-family: 'Open Sans', sans-serif;
-    font-size: 15px;
-    background-color: #2196F3;
+    font-size: 14px;
+    background-color: rgb(56, 52, 244);
     color: white;
     border-radius: 8px;
     box-shadow: rgba(151, 65, 252, 0.2) 0 15px 30px -5px;
@@ -246,6 +248,7 @@ label {
     height: 35px;
     width: 130px;
     position: relative;
+    opacity: 90%;
 }
 
 .layout-select option {
@@ -537,26 +540,30 @@ a {
         height: 700px;
         width: 500px;
     }
-    .editLayout{
+
+    .editLayout {
         width: 1020px;
     }
 }
 
 @media(max-width: 1160px) {
-    .grid{
+    .grid {
         display: grid;
         grid-template-rows: 100px 700px 45px 730px 200px;
     }
+
     .firstGrid {
         flex-direction: column;
         align-items: center;
         justify-content: center;
         gap: 60px;
     }
-    .secGrid{
+
+    .secGrid {
         grid-row: 3;
     }
-    .forthGrid{
+
+    .forthGrid {
         grid-row: 5;
     }
 
@@ -567,19 +574,24 @@ a {
     .outputRelative {
         margin-left: 0px;
     }
-    .editLayout{
+
+    .editLayout {
         width: 500px;
     }
-    .prompt{
+
+    .prompt {
         width: 100%;
         justify-content: center;
     }
-    .promptInput{
+
+    .promptInput {
         width: 500px;
     }
-    .layout-select{
+
+    .layout-select {
         width: 500px;
     }
+
     .layout-select select,
     .layout-select option,
     .newPageBtn button,
@@ -591,43 +603,52 @@ a {
         height: 30px;
         width: 100%;
     }
-    #previewBtn{
+
+    #previewBtn {
         width: 500px;
     }
-    
+
 }
 
 @media(max-width: 535px) {
-    .grid{
+    .grid {
         display: grid;
         grid-template-rows: 100px 505px 45px 535px 200px;
     }
-    .inOutSize{
+
+    .inOutSize {
         width: 305px;
         height: 505px;
     }
+
     .setFlex {
         height: 505px;
     }
+
     .content-grid {
         grid-template-columns: 35px 235px 35px;
     }
+
     .outputRelative {
         height: 505px;
         width: 305px;
     }
-    .promptInput{
+
+    .promptInput {
         width: 305px;
     }
-    .layout-select{
+
+    .layout-select {
         width: 305px;
     }
-    #previewBtn{
+
+    #previewBtn {
         width: 305px;
     }
-    .editLayout{
+
+    .editLayout {
         width: 305px;
         margin-top: 20px;
     }
-    
+
 }
