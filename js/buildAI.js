@@ -59,7 +59,6 @@ function showPic() {
             const existingImgElement = activePage.querySelector('img');
 
             if (imageData && !existingImgElement) {
-                // Create an img element
                 const imgElement = document.createElement('img');
                 // Set the source of the img element to the retrieved image data
                 imgElement.src = imageData;
@@ -78,26 +77,6 @@ function showPic() {
     } else {
         console.log("No active page found");
     }
-    
-    // const input = document.querySelector('.current-page').textContent.trim();
-    // const background = document.querySelector(`.page${i}`);
-    // console.log(input);
-    // const pic = localStorage.getItem(input);
-    // console.log(pic);
-
-    // Check if there's already an img element, or create one
-    // let imgElement = background.querySelector('img') || document.createElement('img');
-
-    // Set the src attribute of the img element
-    // imgElement.src = pic;
-
-    // Append the img element to the textOutput div
-    // if (!background.contains(imgElement)) {
-    //     background.appendChild(imgElement);
-    // }
-
-    // Uncomment the following line if you want to set it as a background as well
-    // background.style.background = `url(${pic})`;
 }
 
 
