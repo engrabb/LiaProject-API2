@@ -4,6 +4,11 @@
     box-sizing: border-box;
 }
 
+.textOutput p {
+    display: inline;
+    background: white;
+}
+
 .sticky-header {
     position: fixed;
     top: 0;
@@ -298,7 +303,7 @@ label {
     border-radius: 10px;
     list-style: none;
     border: 2px solid #17313a;
-    background: white; 
+    background: white;
     color: black(0, 0%, 100%, .9);
     font-size: 21px;
     font-family: "sofia-pro", sans-serif;
