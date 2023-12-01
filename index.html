@@ -9,7 +9,6 @@
     <script src="./js/buildAI.js"></script>
     <script src="./js/confirmation.js"></script>
     <link rel="stylesheet" href="./style/preview.css">
-    <link rel="stylesheet" href="./style/pocketBook.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"
         integrity="sha512-GsLlZN/3F2ErC5ifS5QtgpiJtWd43JWSuIgh7mbzZ8zBps+dvLusV+eNQATqgA/HdeKFVgA5v3S/cIrLF7QnIg=="
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
@@ -136,7 +135,7 @@
                     <button id="newPageBtn" class="openClose-btn btnShadow" onclick="creatNewPage()">New
                         Page</button>
                 </div>
-
+                <button onclick="showPic()">test button</button>
             </div>
         </div>
         <div class="output-arrows-dots">
@@ -172,7 +171,7 @@
                             </div>
                         </div>
                         <ul class="output-area" id="content">
-                            <li id="preview" class="current-page textOutput img output-area"></li>
+                            <li id="preview" class="current-page page0 textOutput img output-area"></li>
                         </ul>
                         <div id="carouselBtn" class="carousel__nav is-hidden">
                             <button class="carousel__indicator current-dot"></button>
@@ -182,16 +181,15 @@
             </div>
         </div>
         <div class="forthGrid">
-            <div class="prompt">
-                <textarea id="promptInput" class="promptInput" placeholder="Prompt:"></textarea>
-            </div>
             <div class="previewSelect">
                 <div class="layout-select">
                     <div class="generateBtn">
-                        <button id="generateButton" class="openClose-btn btnShadow">Click to Generate</button>
+                        <button class="openClose-btn btnShadow" onclick="postData()">Click to Generate</button>
                     </div>
                     <select id="styleSelect" class="input">
                         <option value="Fantasy">Fantasy</option>
+                        <option value="Hyper-Cinema">Realism</option>
+                        <option value="Manga">Manga</option>
                         <option value="Dark-fantasy">Dark-fantasy</option>
                         <option value="Childish-fantasy">Childish fantasy</option>
                         <option value="Sci-fi">Sci-fi</option>
