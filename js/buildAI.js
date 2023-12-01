@@ -87,3 +87,21 @@ function showURL() {
     console.log(textValue);
     console.log(prompt);
 }
+
+function pageSize(){	
+    const size = document.getElementById('nav-btn').textContent;	
+    let pageS;	
+    console.log();	
+    if (size==="Go to standing"){	
+        pageS = "1792x1024";	
+
+
+        return pageS	    // Append the img element to the textOutput div
+    }	    // if (!background.contains(imgElement)) {
+    else{	    //     background.appendChild(imgElement);
+        pageS = "1024x1792";	    // }
+
+
+        return pageS	    // Uncomment the following line if you want to set it as a background as well
+    }	    // background.style.background = `url(${pic})`;
+}

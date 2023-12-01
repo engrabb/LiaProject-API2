@@ -156,7 +156,6 @@ function changeIMGLayout() {
 };
 
 function updatePreview(e) {
-    let previewElement = document.getElementById("preview");
     let editorValue = document.getElementById("editor").value;
 
 
@@ -214,7 +213,11 @@ function createPages(editorValue) {
 
     // Update the innerHTML for each page
     for (let i = 0; i < occurrences.length; i++) {
+        
+        const existingChildren = Array.from(pages[i].children);
         pages[i].innerHTML = occurrences[i];
+        const imgChildren = existingChildren.filter(child => child.tagName.toLowerCase() === 'img');
+        imgChildren.forEach(imgChild => pages[i].appendChild(imgChild));
         if (newPages) {
             if (i === 0) {
                 while (dots.firstChild) {
