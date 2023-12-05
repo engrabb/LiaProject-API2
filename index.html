@@ -32,7 +32,7 @@
             <ul class="nav-menu">
                 <li class="nav-item">
                     <a href="Standing.html">
-                        <button type="button" id="nav-btn" class="save-btn btnShadow input">Go to standing</button>
+                        <button type="button" id="nav-btn" class="save-btn input">Go to standing</button>
                     </a>
                 </li>
                 <li class="nav-item">
@@ -52,7 +52,7 @@
                 </li>
                 <li class="nav-item">
                     <a href="#" class="nav-link">
-                        <button id="saveBtn" class="save-btn btnShadow input" type="button">Save
+                        <button id="saveBtn" class="save-btn input" type="button">Save
                             File</button>
                     </a>
                 </li>
@@ -62,8 +62,8 @@
                 </li>
                 <li class="nav-item">
                     <a href="https://www.markdownguide.org/basic-syntax/" target="_blank" class="nav-link">
-                        <button class="tips btnShadow" type="button" id="toggleBtn" onclick="toggleInfo();">Tips
-                            and tricks</button>
+                        <button class="tips" type="button" id="toggleBtn" onclick="toggleInfo();">Markdown
+                            Instructions</button>
                     </a>
                 </li>
             </ul>
@@ -107,12 +107,14 @@
 
     <div class="grid" id="container">
         <div class="firstGrid">
-            <textarea id="editor" class="inOutSize" onkeyup="updatePreview()"></textarea>
+            <textarea id="editor" class="inOutSize" onkeyup="updatePreview()"
+                placeholder="Write your story here.. then click the generate button below to visualise your work!"></textarea>
         </div>
         <div class="secGrid">
             <div class="layout-select">
                 <div class="fontSelect">
                     <select id="fontSelect" class="input select-menu">
+                        <option value='font'>Font style</option>
                         <option value='poppins'>Poppins (Default)</option>
                         <option value='butterflyKids'>Butterfly Kids</option>
                         <option value='heebo'>Heebo</option>
@@ -123,19 +125,26 @@
                         <option value='theGirlNextDoor'>The Girl Next Door</option>
                     </select>
                 </div>
-                <li class="nav-item"></li>
-                <a href="#" class="nav-link">
-                    <button class="input previewBtn select-menu select" type="button"
-                        onclick="document.getElementById('uploadButton').click();">Insert
-                        Image</button>
-                    <input class="img-input" type="file" id="uploadButton" hidden="hidden"></input>
-                </a>
-                </li>
-                <div class="newPageBtn">
-                    <button id="newPageBtn" class="openClose-btn btnShadow" onclick="creatNewPage()">New
-                        Page</button>
+                <select id="styleSelect" class="input">
+                    <option value="Fantasy">Fantasy</option>
+                    <option value="Hyper-Cinema">Realism</option>
+                    <option value="Manga">Manga</option>
+                    <option value="Dark-fantasy">Dark-fantasy</option>
+                    <option value="Childish-fantasy">Childish fantasy</option>
+                    <option value="Sci-fi">Sci-fi</option>
+                    <option value="Pixel-art">Pixel-art</option>
+                    <option value="Oil-painting">Oil-painting</option>
+                    <option value="Gore">Gore</option>
+                </select>
+                <div class="generateBtn">
+                    <button class="openClose-btn" onclick="postData()">Click to Generate</button>
                 </div>
-                <button onclick="testButton()">Generate</button>
+                <div class="float-right">
+                    <div class="newPageBtn">
+                        <button id="newPageBtn" class="openClose-btn" onclick="creatNewPage()">New
+                            Page</button>
+                    </div>
+                </div>
             </div>
         </div>
         <div class="output-arrows-dots">
@@ -181,26 +190,8 @@
             </div>
         </div>
         <div class="forthGrid">
-            <div class="previewSelect">
-                <div class="layout-select">
-                    <div class="generateBtn">
-                        <button class="openClose-btn btnShadow" onclick="postData()">Click to Generate</button>
-                    </div>
-                    <select id="styleSelect" class="input">
-                        <option value="Fantasy">Fantasy</option>
-                        <option value="Hyper-Cinema">Realism</option>
-                        <option value="Manga">Manga</option>
-                        <option value="Dark-fantasy">Dark-fantasy</option>
-                        <option value="Childish-fantasy">Childish fantasy</option>
-                        <option value="Sci-fi">Sci-fi</option>
-                        <option value="Pixel-art">Pixel-art</option>
-                        <option value="Oil-painting">Oil-painting</option>
-                        <option value="Gore">Gore</option>
-                    </select>
-                </div>
-            </div>
             <div class="preview">
-                <button id="previewBtn" class="openClose-btn btnShadow input">Preview</button>
+                <button id="previewBtn" class="openClose-btn input">Preview</button>
             </div>
         </div>
     </div>
