@@ -149,7 +149,7 @@
 
 .content-grid {
     display: grid;
-    grid-template-columns: 35px 954px 35px;
+    grid-template-columns: 35px 667px 35px;
     position: absolute;
 }
 
