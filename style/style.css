@@ -7,6 +7,7 @@
 .textOutput p {
     display: inline;
     background: white;
+    border: 7px;
 }
 
 .sticky-header {

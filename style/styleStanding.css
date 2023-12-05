@@ -53,6 +53,7 @@
 .textOutput p {
     display: inline;
     background: white;
+    border-radius: 7px;
 }
 
 #btn-section {
