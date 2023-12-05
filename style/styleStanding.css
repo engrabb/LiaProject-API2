@@ -209,7 +209,7 @@ label {
 
 .layout-select {
     width: 100%;
-    max-width: 1024px;
+    max-width: 737px;
     display: flex;
     margin-top: 10px;
     gap: 10px;
@@ -307,8 +307,8 @@ label {
 }
 
 .textOutput img {
-    /* position: absolute; */
-    width: 1024px;
+    position: absolute;
+    width: 737px;
     left: 0;
     bottom: 0;
     z-index: 0;
@@ -386,21 +386,21 @@ label {
 
 .content-grid {
     display: grid;
-    grid-template-columns: 35px 630px 35px;
+    grid-template-columns: 35px 442px 35px;
     position: absolute;
 }
 
 .outputRelative {
     margin-left: 10px;
     position: relative;
-    height: 900px;
-    width: 700px;
+    height: 737px;
+    width: 512px;
 }
 
 .setFlex {
     display: flex;
     justify-content: center;
-    height: 900px;
+    height: 737px;
 }
 
 #rightArrow,
@@ -416,8 +416,8 @@ label {
 }
 
 .inOutSize {
-    width: 700px;
-    height: 900px;
+    width: 512px;
+    height: 737px;
 }
 
 .inOutSize>ul {

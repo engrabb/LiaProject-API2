@@ -7,10 +7,19 @@ function modalOpen() {
     modalPages.innerHTML = document.querySelector('.output-area').innerHTML;
     const allPages = modalPages.querySelectorAll('li');
     modalPages.removeAttribute('style');
+    PreviewLayout = document.getElementById('nav-btn').textContent;
+    console.log(PreviewLayout);
     allPages.forEach(x => {
-        x.removeAttribute('id');
-        x.removeAttribute('class');
-        x.classList.add('modal-page');
+        if(PreviewLayout === 'Go to standing'){
+            x.removeAttribute('id');
+            x.removeAttribute('class');
+            x.classList.add('modal-page');  
+        }
+        else{
+            x.removeAttribute('id');
+            x.removeAttribute('class');
+            x.classList.add('modal-pageS');
+        }
     });
     allPages[0].classList.add('model-current-page');
     translateXAmount = 0;

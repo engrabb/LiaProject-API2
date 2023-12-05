@@ -156,7 +156,7 @@
 .outputRelative {
     position: relative;
     height: 512px;
-    width: 1024px;
+    width: 737px;
 }
 
 .setFlex {
@@ -238,7 +238,7 @@ label {
 }*/
 
 .layout-select {
-    width: 1024px;
+    width: 737px;
     display: flex;
     margin-top: 10px;
     gap: 10px;
@@ -332,7 +332,7 @@ label {
 
 .textOutput img {
     position: absolute;
-    width: 1024px;
+    width: 737px;
     left: 0;
     bottom: 0;
     z-index: 0;
@@ -419,7 +419,7 @@ label {
 
 .inOutSize {
     height: 512px;
-    width: 1024px;
+    width: 737px;
 }
 
 .inOutSize>ul {
@@ -431,11 +431,6 @@ label {
     width: 100%;
     justify-content: center;
     height: 100px;
-}
-
-.promptInput {
-    width: 1024px;
-    height: 100%;
 }
 
 

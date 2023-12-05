@@ -19,7 +19,7 @@ async function postData() {
             },
             body: JSON.stringify({ data: prompt, pageSize: size}),
         });
-
+        console.log(size);
         const data = await response.json();
 
         if (data.error) {
