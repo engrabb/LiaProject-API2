@@ -528,29 +528,29 @@ a {
 
 @media(max-width: 1115px) {
     .inOutSize {
-        height: 412px;
-        width: 824px;
+        height: 512px;
+        width: 737px;
     }
 
     .outputRelative {
-        height: 412px;
-        width: 824px;
+        height: 512px;
+        width: 737px;
     }
 
     .setFlex {
-        height: 412px;
+        height: 512px;
     }
 
     .textOutput {
-        height: 412px;
+        height: 512px;
     }
 
     .layout-select {
-        width: 824px;
+        width: 737px;
     }
 
     .content-grid {
-        grid-template-columns: 35px 754px 35px;
+        grid-template-columns: 35px 667px 35px;
     }
 
     .layout-select select,
@@ -562,7 +562,7 @@ a {
     .previewBtn,
     .input {
         /* Adjust styles for smaller screens */
-        height: 30px;
+        height: 35px;
         max-width: 130px;
 
     }
@@ -570,21 +570,21 @@ a {
 
 @media(max-width: 1000px) {
     .inOutSize {
-        height: 312px;
+        height: 433.4px;
         width: 624px;
     }
 
     .outputRelative {
-        height: 312px;
+        height: 433.4px;
         width: 624px;
     }
 
     .setFlex {
-        height: 312px;
+        height: 433.4px;
     }
 
     .textOutput {
-        height: 312px;
+        height: 433.4px;
     }
 
     .layout-select {
@@ -608,7 +608,7 @@ a {
     .previewBtn,
     .input {
         /* Adjust styles for smaller screens */
-        height: 30px;
+        height: 35px;
         width: 100%;
     }
 
@@ -619,21 +619,21 @@ a {
 
 @media(max-width:730px) {
     .inOutSize {
-        height: 212px;
+        height: 294.5px;
         width: 424px;
     }
 
     .outputRelative {
-        height: 212px;
+        height: 294.5px;
         width: 424px;
     }
 
     .setFlex {
-        height: 212px;
+        height: 294.5px;
     }
 
     .textOutput {
-        height: 212px;
+        height: 294.5px;
     }
 
     .layout-select {
@@ -655,23 +655,23 @@ a {
 
 @media(max-width:550px) {
     .inOutSize {
-        height: 162px;
+        height: 259.7px;
         width: 374px;
         min-width: 374px;
         min-height: 162px;
     }
 
     .outputRelative {
-        height: 162px;
+        height: 259.7px;
         width: 374px;
     }
 
     .setFlex {
-        height: 162px;
+        height: 259.7px;
     }
 
     .textOutput {
-        height: 162px;
+        height: 259.7px;
     }
 
     .layout-select {

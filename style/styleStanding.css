@@ -519,21 +519,21 @@ a {
 
 @media(max-width: 1560px) {
     .inOutSize {
-        width: 500px;
-        height: 700px;
+        width: 512px;
+        height: 737px;
     }
 
     .setFlex {
-        height: 700px;
+        height: 737px;
     }
 
     .content-grid {
-        grid-template-columns: 35px 430px 35px;
+        grid-template-columns: 35px 442px 35px;
     }
 
     .outputRelative {
-        height: 700px;
-        width: 500px;
+        height: 737px;
+        width: 512px;
     }
 
     .editLayout {
@@ -544,7 +544,7 @@ a {
 @media(max-width: 1160px) {
     .grid {
         display: grid;
-        grid-template-rows: 100px 700px 45px 730px 200px;
+        grid-template-rows: 100px 737px 45px 767px 200px;
     }
 
     .firstGrid {
@@ -571,7 +571,7 @@ a {
     }
 
     .editLayout {
-        width: 500px;
+        width: 512px;
     }
 
     .prompt {
@@ -581,7 +581,7 @@ a {
 
 
     .layout-select {
-        width: 500px;
+        width: 512px;
     }
 
     .layout-select select,
@@ -592,29 +592,29 @@ a {
     .generateBtn button,
     .input {
         /* Adjust styles for smaller screens */
-        height: 30px;
+        height: 35px;
         width: 100%;
     }
 
     #previewBtn {
-        width: 500px;
+        width: 512px;
     }
 
 }
 
-@media(max-width: 535px) {
+@media(max-width: 570px) {
     .grid {
         display: grid;
-        grid-template-rows: 100px 505px 45px 535px 200px;
+        grid-template-rows: 100px 440px 45px 455px 200px;
     }
 
     .inOutSize {
         width: 305px;
-        height: 505px;
+        height: 439.2px;
     }
 
     .setFlex {
-        height: 505px;
+        height:439.2px;
     }
 
     .content-grid {
@@ -622,7 +622,7 @@ a {
     }
 
     .outputRelative {
-        height: 505px;
+        height: 439.2px;
         width: 305px;
     }
 
