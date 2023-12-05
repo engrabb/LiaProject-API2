@@ -331,6 +331,7 @@ label {
 }
 
 .textOutput img {
+    position: absolute;
     width: 1024px;
     left: 0;
     bottom: 0;

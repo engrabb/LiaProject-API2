@@ -307,7 +307,7 @@ label {
 }
 
 .textOutput img {
-    position: absolute;
+    /* position: absolute; */
     width: 1024px;
     left: 0;
     bottom: 0;
@@ -321,6 +321,7 @@ label {
 }
 
 .current-page {
+    display: block;
     z-index: 1;
 }
 
@@ -421,13 +422,6 @@ label {
 
 .inOutSize>ul {
     height: 100%;
-}
-
-.prompt {
-    display: flex;
-    width: 100%;
-    justify-content: center;
-    height: 100px;
 }
 
 
