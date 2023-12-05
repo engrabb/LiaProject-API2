@@ -2,7 +2,7 @@
 async function postData() {
     const style = document.getElementById('styleSelect').value;
     const textValue = document.querySelector('.current-page').textContent.trim();
-    const prompt = textValue +", "+ style;
+    const prompt = textValue + ", " + style;
     const size = pageSize();
 
 
@@ -17,7 +17,7 @@ async function postData() {
             headers: {
                 'Content-Type': 'application/json',
             },
-            body: JSON.stringify({ data: prompt, pageSize: size}),
+            body: JSON.stringify({ data: prompt, pageSize: size }),
         });
         console.log(size);
         const data = await response.json();
@@ -46,10 +46,10 @@ function showPic() {
 
     // Check if an active page is found
     if (activePage) {
-      // Extract the numeric part from the class name
+        // Extract the numeric part from the class name
         const pageNumberMatch = activePage.className.match(/page(\d+)/);
-        
-      // Check if a match is found
+
+        // Check if a match is found
         if (pageNumberMatch) {
             const textArray = document.querySelector('.current-page').textContent.trim();
             const pageNumber = parseInt(pageNumberMatch[1]);
@@ -63,16 +63,16 @@ function showPic() {
                 // Set the source of the img element to the retrieved image data
                 imgElement.src = imageData;
                 console.log(imgElement);
-        
+
                 // Append the img element to the active page
                 activePage.appendChild(imgElement);
-            } 
+            }
             else {
                 console.log("Image data not found in local storage");
             }
-            
+
         } else {
-        console.log("Unable to determine page number from class name");
+            console.log("Unable to determine page number from class name");
         }
     } else {
         console.log("No active page found");
@@ -83,22 +83,22 @@ function showPic() {
 function showURL() {
     const style = document.getElementById('styleSelect').value;
     const textValue = document.querySelector('.current-page').textContent.trim();
-    const prompt = textValue +", "+ style;
+    const prompt = textValue + ", " + style;
     console.log(textValue);
     console.log(prompt);
 }
 
-function pageSize(){	
-    const size = document.getElementById('nav-btn').textContent;	
-    let pageS;	
-    console.log();	
-    if (size==="Go to standing"){	
-        pageS = "1792x1024";	
+function pageSize() {
+    const size = document.getElementById('nav-btn').textContent;
+    let pageS;
+    console.log();
+    if (size === "Go to standing") {
+        pageS = "1792x1024";
 
 
         return pageS	    // Append the img element to the textOutput div
     }	    // if (!background.contains(imgElement)) {
-    else{	    //     background.appendChild(imgElement);
+    else {	    //     background.appendChild(imgElement);
         pageS = "1024x1792";	    // }
 
 
