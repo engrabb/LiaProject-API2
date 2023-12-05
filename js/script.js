@@ -169,6 +169,7 @@ function creatNewPage() {
     const newText = text + "\n \n --- \n";
     inputElement.value = newText;
     carouselIndicator.classList.remove("is-hidden");
+    moveCursorToNextLine()
     updatePreview();
 }
 
@@ -196,8 +197,7 @@ function createPages(editorValue) {
 
         // Add an event listener for the fontSelect dropdown's change event
         const fontSelect = document.getElementById('fontSelect');
-        fontSelect.addEventListener('change', function () {
-            moveCursorToNextLine()
+        fontSelect.addEventListener('change', function () {            
             const selectedFontFamily = applyFontStyle(newLi); // Reapply font style when font selection changes 
             storeAppliedFont(selectedFontFamily)
         });
