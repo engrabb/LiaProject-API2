@@ -29,8 +29,10 @@ def generate_image():
         try:
             req_data = request.get_json()
             received_data = req_data.get('data', 'No data received')
+            pageSize = req_data.get('pageSize', 'default page size')
 
             prompt = received_data
+            size = pageSize
 
 
             api_url = 'https://api.openai.com/v1/images/generations'
@@ -42,7 +44,7 @@ def generate_image():
                 "model": "dall-e-3",
                 "prompt": prompt,
                 "n": 1,
-                "size": "1024x1024"
+                "size": size
             }
 
             response = requests.post(api_url, headers=headers, data=json.dumps(data))

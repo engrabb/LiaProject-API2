@@ -6,6 +6,7 @@ var textKeyIndex = 0;
 
 const appliedFonts = [];
 let pageIndex = 0;
+let pIndex = 1;
 
 document.addEventListener("DOMContentLoaded", function () {
 
@@ -155,7 +156,6 @@ function changeIMGLayout() {
 };
 
 function updatePreview(e) {
-    let previewElement = document.getElementById("preview");
     let editorValue = document.getElementById("editor").value;
 
 
@@ -185,6 +185,8 @@ function createPages(editorValue) {
     while (occurrences.length > pages.length) {
         const newLi = document.createElement('li');
         newLi.className = 'textOutput';
+        newLi.classList.add(`page${pIndex}`);
+        pIndex++;
         track.appendChild(newLi);
         track.appendChild(newLi);
         pages.push(newLi); // Add the new page to the pages array
@@ -211,7 +213,11 @@ function createPages(editorValue) {
 
     // Update the innerHTML for each page
     for (let i = 0; i < occurrences.length; i++) {
+        
+        const existingChildren = Array.from(pages[i].children);
         pages[i].innerHTML = occurrences[i];
+        const imgChildren = existingChildren.filter(child => child.tagName.toLowerCase() === 'img');
+        imgChildren.forEach(imgChild => pages[i].appendChild(imgChild));
         if (newPages) {
             if (i === 0) {
                 while (dots.firstChild) {
