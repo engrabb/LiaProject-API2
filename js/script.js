@@ -32,43 +32,57 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 
 
-    /* Font selection dropdown */
+    /* Fonts */
+    const textInput = document.getElementById('editor');
     const fontSelect = document.getElementById("fontSelect");
     const previewElement = document.getElementById("preview");
     let selectedFontFamily = '';
 
+    textInput.addEventListener('input', function() {
+        previewElement.style.fontFamily = 'poppins';
+        localStorage.setItem
+        setPageFontInStorage(pageNumber, 'poppins')
+    });
+
     fontSelect.addEventListener('change', function () {
         const selectedFont = this.value;
-
-        switch (selectedFont) {
-            case 'poppins':
-                selectedFontFamily = "'Poppins', sans-serif";
-                break;
-            case 'butterflyKids':
-                selectedFontFamily = "'Butterfly Kids', cursive";
-                break;
-            case 'heebo':
-                selectedFontFamily = "'Heebo', sans-serif";
-                break;
-            case 'homemadeApple':
-                selectedFontFamily = "'Homemade Apple', cursive";
-                break;
-            case 'inconsolata':
-                selectedFontFamily = "'Inconsolata', monospace";
-                break;
-            case 'marcellus':
-                selectedFontFamily = "'Marcellus', serif";
-                break;
-            case 'tenorSans':
-                selectedFontFamily = "'Tenor Sans', sans-serif";
-                break;
-            case 'theGirlNextDoor':
-                selectedFontFamily = "'The Girl Next Door', cursive";
-                break;
-        }
-        previewElement.style.fontFamily = selectedFontFamily;
-        storeAppliedFont(selectedFont);
+        applyFont(selectedFont); // Function to apply the selected font        
+        setPageFontInStorage(pageNumber, selectedFont)
     });
+
+    // Function to apply the selected font
+    function applyFont(selectedFont) {
+        const fontFamilies = {
+            'poppins': "'Poppins', sans-serif",
+            'butterflyKids': "'Butterfly Kids', cursive",
+            'heebo': "'Heebo', sans-serif",
+            'homemadeApple': "'Homemade Apple', cursive",
+            'inconsolata': "'Inconsolata', monospace",
+            'marcellus': "'Marcellus', serif",
+            'tenorSans': "'Tenor Sans', sans-serif",
+            'theGirlNextDoor': "'The Girl Next Door', cursive"            
+        };
+
+        const selectedFontFamily = fontFamilies[selectedFont];
+
+        if (selectedFontFamily) {
+            previewElement.style.fontFamily = selectedFontFamily;
+        } else {
+            console.error('Font family not found for the selected font.');
+        }
+    }
+
+    // Function to set page font in localStorage
+    function setPageFontInStorage(pageNumber, font) {
+        const fontKey = `page_${pageNumber}_font`;
+        localStorage.setItem(fontKey, font);
+    }
+
+    // Function to get page font from localStorage
+    function getPageFontFromStorage(pageNumber) {
+        const fontKey = `page_${pageNumber}_font`;
+        return localStorage.getItem(fontKey);
+    }
 
     const textarea = document.querySelector("textarea");
     const selectMenu = document.getElementById('fileType');
