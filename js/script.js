@@ -57,11 +57,13 @@ document.addEventListener("DOMContentLoaded", function () {
     function applyFont(selectedFont) {
         const fontFamilies = {
             'poppins': "'Poppins', sans-serif",
-            'butterflyKids': "'Butterfly Kids', cursive",
-            'heebo': "'Heebo', sans-serif",
+            'montserrat': "'Montserrat', sans-serif",
+            'lato': "'Lato', sans-serif",
+            'lora': "'Lora', serif",
+            'openSans': "'Open Sans', sans-serif",
             'homemadeApple': "'Homemade Apple', cursive",
             'inconsolata': "'Inconsolata', monospace",
-            'marcellus': "'Marcellus', serif",
+            'nunito': "'Nunito', sans-serif",
             'tenorSans': "'Tenor Sans', sans-serif",
             'theGirlNextDoor': "'The Girl Next Door', cursive"
         };
@@ -77,14 +79,14 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // Function to set page font in localStorage
     function setPageFontInStorage(pageNumber, font) {
-        //const fontKey = `page_${pageNumber}_font`;
-        localStorage.setItem(paneNumber, font);
+        const fontKey = `page_${pageNumber}_font`;
+        localStorage.setItem(fontKey, font);
     }
 
     // Function to get page font from localStorage
     function getPageFontFromStorage(pageNumber) {
-        //const fontKey = `page_${pageNumber}_font`;
-        return localStorage.getItem(pageNumber);
+        const fontKey = `page_${pageNumber}_font`;
+        return localStorage.getItem(fontKey);
     }
 
     const textarea = document.querySelector("textarea");
@@ -185,7 +187,7 @@ function creatNewPage() {
     inputElement.value = newText;
     carouselIndicator.classList.remove("is-hidden");
     moveCursorToNextLine()
-    updatePreview();   
+    updatePreview();
 
 }
 
@@ -210,7 +212,7 @@ function createPages(editorValue) {
         addCurrentToLast(track);
         newPages = true;
         // dots   
-        fontSelect.addEventListener('change', function () {            
+        fontSelect.addEventListener('change', function () {
             const selectedFontFamily = applyFontStyle(newLi); // Reapply font style when font selection changes 
             //storeAppliedFont(selectedFontFamily)
         });
@@ -226,7 +228,7 @@ function createPages(editorValue) {
 
     // Update the innerHTML for each page
     for (let i = 0; i < occurrences.length; i++) {
-        
+
         const existingChildren = Array.from(pages[i].children);
         pages[i].innerHTML = occurrences[i];
         const imgChildren = existingChildren.filter(child => child.tagName.toLowerCase() === 'img');
@@ -275,11 +277,17 @@ function applyFontStyle(page) {
         case 'poppins':
             selectedFontFamily = "'Poppins', sans-serif";
             break;
-        case 'butterflyKids':
-            selectedFontFamily = "'Butterfly Kids', cursive";
+        case 'montserrat':
+            selectedFontFamily = "'Montserrat', sans-serif";
             break;
-        case 'heebo':
-            selectedFontFamily = "'Heebo', sans-serif";
+        case 'lato':
+            selectedFontFamily = "'Lato', sans-serif";
+            break;
+        case 'lora':
+            selectedFontFamily = "'Lora', serif";
+            break;
+        case 'openSans':
+            selectedFontFamily = "'Open Sans', sans-serif";
             break;
         case 'homemadeApple':
             selectedFontFamily = "'Homemade Apple', cursive";
@@ -287,8 +295,8 @@ function applyFontStyle(page) {
         case 'inconsolata':
             selectedFontFamily = "'Inconsolata', monospace";
             break;
-        case 'marcellus':
-            selectedFontFamily = "'Marcellus', serif";
+        case 'nunito':
+            selectedFontFamily = "'Nunito', sans-serif";
             break;
         case 'tenorSans':
             selectedFontFamily = "'Tenor Sans', sans-serif";
@@ -328,10 +336,11 @@ function moveCursorToNextLine() {
     inputElement.focus();
 }
 
+/*
 function storeAppliedFont(selectedFont) {
     pageIndex++;
     appliedFonts.push({ pageIndex, selectedFont });
-}
+}*/
 
 
 function ChangeIMGLayout() {
