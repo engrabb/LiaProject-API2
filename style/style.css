@@ -315,21 +315,21 @@ label {
 }*/
 
 .textOutput {
+    padding: 10px;
     position: relative;
     height: 512px;
     display: none;
     border-radius: 10px;
     list-style: none;
-    border: 2px solid #17313a;
-    background: white;
-    color: black(0, 0%, 100%, .9);
+    border: 1px solid rgb(196, 219, 252);
+    background: #111214;
+    color: white;
     font-size: 21px;
     font-family: "sofia-pro", sans-serif;
     overflow-wrap: break-word;
-    padding-left: 5px;
-    padding-right: 5px;
-    padding-top: 11px;
+    line-height: 1.2;    
 }
+
 
 .textOutput img {
     position: absolute;
