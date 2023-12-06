@@ -134,26 +134,26 @@ document.addEventListener("DOMContentLoaded", function () {
 
 }); // The end of DOMContent
 
-function changeIMGLayout() {
-    const positionSelect = document.getElementById('picturePlacement');
-    const selectedPosition = positionSelect.value;
+// function changeIMGLayout() {
+//     const positionSelect = document.getElementById('picturePlacement');
+//     const selectedPosition = positionSelect.value;
 
-    const styleSheet = document.styleSheets[0];
-    const rules = styleSheet.cssRules;
+//     const styleSheet = document.styleSheets[0];
+//     const rules = styleSheet.cssRules;
 
-    for (let i = 0; i < rules.length; i++) {
-        if (rules[i].selectorText === '.textOutput img') {
-            const rule = rules[i];
-            if (selectedPosition === 'Bottom') {
-                rule.style.bottom = rule.style.top;
-                rule.style.removeProperty('Top');
-            } else {
-                rule.style.top = rule.style.bottom;
-                rule.style.removeProperty('Bottom');
-            }
-        }
-    }
-};
+//     for (let i = 0; i < rules.length; i++) {
+//         if (rules[i].selectorText === '.textOutput img') {
+//             const rule = rules[i];
+//             if (selectedPosition === 'Bottom') {
+//                 rule.style.bottom = rule.style.top;
+//                 rule.style.removeProperty('Top');
+//             } else {
+//                 rule.style.top = rule.style.bottom;
+//                 rule.style.removeProperty('Bottom');
+//             }
+//         }
+//     }
+// };
 
 function updatePreview(e) {
     let editorValue = document.getElementById("editor").value;
@@ -322,26 +322,26 @@ function storeAppliedFont(selectedFont) {
 }
 
 
-function ChangeIMGLayout() {
-    const positionSelect = document.getElementById('positionSelect');
-    const selectedPosition = positionSelect.value;
+// function ChangeIMGLayout() {
+//     const positionSelect = document.getElementById('positionSelect');
+//     const selectedPosition = positionSelect.value;
 
-    const styleSheet = document.styleSheets[0];
-    const rules = styleSheet.cssRules;
+//     const styleSheet = document.styleSheets[0];
+//     const rules = styleSheet.cssRules;
 
-    for (let i = 0; i < rules.length; i++) {
-        if (rules[i].selectorText === '.textOutput img') {
-            const rule = rules[i];
-            if (selectedPosition === 'bottom') {
-                rule.style.bottom = rule.style.top;
-                rule.style.removeProperty('top');
-            } else {
-                rule.style.top = rule.style.bottom;
-                rule.style.removeProperty('bottom');
-            }
-        }
-    }
-}
+//     for (let i = 0; i < rules.length; i++) {
+//         if (rules[i].selectorText === '.textOutput img') {
+//             const rule = rules[i];
+//             if (selectedPosition === 'bottom') {
+//                 rule.style.bottom = rule.style.top;
+//                 rule.style.removeProperty('top');
+//             } else {
+//                 rule.style.top = rule.style.bottom;
+//                 rule.style.removeProperty('bottom');
+//             }
+//         }
+//     }
+// }
 
 function findImgMatch(editorValue) {
 
@@ -383,12 +383,22 @@ function addCurrentToLast(track) {
 }
 
 function Convert_HTML_To_PDF(fileName) {
-    const elements = document.querySelectorAll(".output-area li");
+    
+    const elements = document.querySelectorAll('li[class*="page"]');
+
 
     // Create an array to store the content for each page
     const pages = [];
 
     elements.forEach((element, index) => {
+        var imgKey= element.textContent;
+        console.log('imgKey: ' + imgKey)
+        const imageData = localStorage.getItem(imgKey); 
+        console.log('img src: ' + imageData);
+        console.log('elementhtml:'+element.innerHTML);
+        page.push('');
+
+        console.log(``);
         // Add a page break before each item except the first one
         if (index > 0) {
             pages.push('<div style="page-break-before: always;"></div>');
@@ -416,6 +426,7 @@ function Convert_HTML_To_PDF(fileName) {
 
     // Use the html2pdf library to generate the PDF
     html2pdf(htmlContent, opt);
+
 }
 /*function Create_Preview() {
     const elements = document.querySelectorAll(".output-area li");
