@@ -8,6 +8,8 @@ const appliedFonts = [];
 let pageIndex = 0;
 let pIndex = 1;
 
+var pageNumber = 1;
+
 document.addEventListener("DOMContentLoaded", function () {
 
     window.addEventListener('resize', function () {
@@ -38,16 +40,17 @@ document.addEventListener("DOMContentLoaded", function () {
     const previewElement = document.getElementById("preview");
     let selectedFontFamily = '';
 
-    textInput.addEventListener('input', function() {
+    textInput.addEventListener('input', function () {
         previewElement.style.fontFamily = 'poppins';
-        localStorage.setItem
-        setPageFontInStorage(pageNumber, 'poppins')
+        fontSelect.value = 'poppins';
+        setPageFontInStorage(pageNumber, 'poppins');
     });
 
     fontSelect.addEventListener('change', function () {
         const selectedFont = this.value;
-        applyFont(selectedFont); // Function to apply the selected font        
-        setPageFontInStorage(pageNumber, selectedFont)
+        applyFont(selectedFont); // Function to apply the selected font
+        fontSelect.value = selectedFont;
+        setPageFontInStorage(pageNumber, selectedFont);
     });
 
     // Function to apply the selected font
@@ -60,7 +63,7 @@ document.addEventListener("DOMContentLoaded", function () {
             'inconsolata': "'Inconsolata', monospace",
             'marcellus': "'Marcellus', serif",
             'tenorSans': "'Tenor Sans', sans-serif",
-            'theGirlNextDoor': "'The Girl Next Door', cursive"            
+            'theGirlNextDoor': "'The Girl Next Door', cursive"
         };
 
         const selectedFontFamily = fontFamilies[selectedFont];
@@ -74,14 +77,14 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // Function to set page font in localStorage
     function setPageFontInStorage(pageNumber, font) {
-        const fontKey = `page_${pageNumber}_font`;
-        localStorage.setItem(fontKey, font);
+        //const fontKey = `page_${pageNumber}_font`;
+        localStorage.setItem(paneNumber, font);
     }
 
     // Function to get page font from localStorage
     function getPageFontFromStorage(pageNumber) {
-        const fontKey = `page_${pageNumber}_font`;
-        return localStorage.getItem(fontKey);
+        //const fontKey = `page_${pageNumber}_font`;
+        return localStorage.getItem(pageNumber);
     }
 
     const textarea = document.querySelector("textarea");
@@ -171,8 +174,6 @@ function changeIMGLayout() {
 
 function updatePreview(e) {
     let editorValue = document.getElementById("editor").value;
-
-
     let markedUpHTML = marked(findImgMatch(editorValue));
     createPages(markedUpHTML);
 }
@@ -184,7 +185,8 @@ function creatNewPage() {
     inputElement.value = newText;
     carouselIndicator.classList.remove("is-hidden");
     moveCursorToNextLine()
-    updatePreview();
+    updatePreview();   
+
 }
 
 
@@ -207,13 +209,10 @@ function createPages(editorValue) {
         pages.push(newLi); // Add the new page to the pages array
         addCurrentToLast(track);
         newPages = true;
-        // dots        
-
-        // Add an event listener for the fontSelect dropdown's change event
-        const fontSelect = document.getElementById('fontSelect');
+        // dots   
         fontSelect.addEventListener('change', function () {            
             const selectedFontFamily = applyFontStyle(newLi); // Reapply font style when font selection changes 
-            storeAppliedFont(selectedFontFamily)
+            //storeAppliedFont(selectedFontFamily)
         });
     }
 
@@ -253,7 +252,6 @@ function createPages(editorValue) {
         }
         const lastSiblingdot = document.querySelector('.carousel__indicator:last-child');
         lastSiblingdot.classList.add('current-dot');
-
 
 
         const leftButton = document.querySelector('.carousel__button--left');
