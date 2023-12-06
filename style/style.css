@@ -4,12 +4,6 @@
     box-sizing: border-box;
 }
 
-.textOutput p {
-    display: inline;
-    background: white;
-    border: 7px;
-}
-
 .sticky-header {
     position: fixed;
     top: 0;
@@ -182,7 +176,7 @@ label {
 #editor {
     padding: 10px;
     border-radius: 10px;
-    border: 2px solid #17313a;
+    border: 1.5px solid rgb(0, 98, 86);
     background: white;
     color: black(0, 0%, 100%, .9);
     font-size: 21px;
@@ -320,15 +314,22 @@ label {
     display: none;
     border-radius: 10px;
     list-style: none;
-    border: 2px solid #17313a;
+    border: 1.5px solid rgb(0, 98, 86);
     background: white;
-    color: black(0, 0%, 100%, .9);
+    color: black;
     font-size: 21px;
     font-family: "sofia-pro", sans-serif;
     overflow-wrap: break-word;
     padding-left: 5px;
     padding-right: 5px;
     padding-top: 11px;
+    line-height: 1.8;
+}
+
+.textOutput p {
+    display: inline;
+    background-color: rgba(196, 219, 252, 0.204); 
+    border: 7px;
 }
 
 .textOutput img {
@@ -344,12 +345,13 @@ label {
     z-index: -1;
 }
 
+
+
 .current-page {
     position: relative;
     display: block;
     z-index: 1;
 }
-
 
 .carousel__nav {
     margin-top: 2px;
