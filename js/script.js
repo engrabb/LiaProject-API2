@@ -10,6 +10,13 @@ let pIndex = 1;
 
 var pageNumber = 1;
 
+let allowTextInputEvent = true;
+let allowFontSelectEvent = true;
+
+const textInput = document.getElementById('editor');
+const fontSelect = document.getElementById("fontSelect");
+const previewElement = document.getElementById("preview");
+
 document.addEventListener("DOMContentLoaded", function () {
 
     window.addEventListener('resize', function () {
@@ -35,22 +42,24 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
     /* Fonts */
-    const textInput = document.getElementById('editor');
-    const fontSelect = document.getElementById("fontSelect");
-    const previewElement = document.getElementById("preview");
+
     let selectedFontFamily = '';
 
     textInput.addEventListener('input', function () {
-        previewElement.style.fontFamily = 'poppins';
-        fontSelect.value = 'poppins';
-        setPageFontInStorage(pageNumber, 'poppins');
+        if (allowTextInputEvent) {
+            previewElement.style.fontFamily = 'poppins'; // font in textoutput
+            fontSelect.value = 'poppins'; // font in dropdown
+            setPageFontInStorage(pageNumber, 'poppins');
+        }
     });
 
     fontSelect.addEventListener('change', function () {
-        const selectedFont = this.value;
-        applyFont(selectedFont); // Function to apply the selected font
-        fontSelect.value = selectedFont;
-        setPageFontInStorage(pageNumber, selectedFont);
+        if (allowFontSelectEvent) {
+            const selectedFont = this.value;
+            applyFont(selectedFont); // Function to apply the selected font
+            fontSelect.value = selectedFont;
+            setPageFontInStorage(pageNumber, selectedFont);
+        }
     });
 
     // Function to apply the selected font
@@ -94,7 +103,6 @@ document.addEventListener("DOMContentLoaded", function () {
     const saveBtn = document.getElementById("saveBtn");
     selectMenu.addEventListener("change", () => {
         const selectedFormat = selectMenu.options[selectMenu.selectedIndex].text;
-
     });
 
     saveBtn.addEventListener("click", () => {
@@ -180,6 +188,7 @@ function updatePreview(e) {
     createPages(markedUpHTML);
 }
 function creatNewPage() {
+
     const carouselIndicator = document.getElementById("carouselBtn");
     const inputElement = document.getElementById('editor');
     const text = inputElement.value;
@@ -187,10 +196,10 @@ function creatNewPage() {
     inputElement.value = newText;
     carouselIndicator.classList.remove("is-hidden");
     moveCursorToNextLine()
+    // Disable event listeners temporarily
+    allowTextInputEvent = false;
     updatePreview();
-
 }
-
 
 function createPages(editorValue) {
 
@@ -211,10 +220,20 @@ function createPages(editorValue) {
         pages.push(newLi); // Add the new page to the pages array
         addCurrentToLast(track);
         newPages = true;
-        // dots   
-        fontSelect.addEventListener('change', function () {
+        // dots 
+        
+        /* eventlistener for elements in INPUT text box does not react within the while loop??*/
+        /*const textOutput = document.querySelector('li')
+        textOutput.addEventListener('input', function () {
+            const selectedFontFamily = fontSelect.value;
+            textOutput.style.fontFamily = selectedFontFamily;
+        });*/
+
+        fontSelect.addEventListener('mouseover', function () {
             const selectedFontFamily = applyFontStyle(newLi); // Reapply font style when font selection changes 
-            //storeAppliedFont(selectedFontFamily)
+            storeAppliedFont(selectedFontFamily)
+            //setPageFontInStorage(pageNumber, selectedFontFamily);
+            //pageNumber++;                 
         });
     }
 
@@ -336,11 +355,11 @@ function moveCursorToNextLine() {
     inputElement.focus();
 }
 
-/*
+
 function storeAppliedFont(selectedFont) {
     pageIndex++;
     appliedFonts.push({ pageIndex, selectedFont });
-}*/
+}
 
 
 function ChangeIMGLayout() {
