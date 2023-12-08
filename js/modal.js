@@ -1,6 +1,7 @@
 const openModal = document.querySelector('#previewBtn');
 let modalPages = modal.querySelector('.modal-pages');
 const closeModal = modal.querySelector('.close-modal');
+const modalPSize = document.getElementById('modalP'); 
 
 function modalOpen() {
     modal.showModal();

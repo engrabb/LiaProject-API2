@@ -19,13 +19,6 @@
 .modal-pages {
     white-space: nowrap;
     padding: 50px;
-    max-width: 1690px;
-    transition: transform 250ms ease-in;
-    user-select: none;
-}
-.modal-pagesS {
-    white-space: nowrap;
-    padding: 50px;
     max-width: 1170px;
     transition: transform 250ms ease-in;
     user-select: none;
@@ -101,6 +94,3 @@
     cursor: pointer;
     z-index: 10;
 }
-
-
-
