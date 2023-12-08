@@ -10,7 +10,7 @@ function modalOpen() {
     PreviewLayout = document.getElementById('nav-btn').textContent;
     console.log(PreviewLayout);
     allPages.forEach(x => {
-        if(PreviewLayout === 'Go to standing'){
+        if(PreviewLayout === 'Portrait'){
             x.removeAttribute('id');
             x.removeAttribute('class');
             x.classList.add('modal-page');  
