@@ -498,7 +498,7 @@ a {
     background-color: dodgerblue;
 }
 
-@media(max-width: 960px) {
+@media(max-width: 1000px) {
     .hamburger {
         display: block;
     }
@@ -533,6 +533,8 @@ a {
 
     .nav-menu.active {
         left: 0;
+        gap: 0px;
+        height: ;
     }
 }
 
