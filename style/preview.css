@@ -19,7 +19,7 @@
 .modal-pages {
     white-space: nowrap;
     padding: 50px;
-    max-width: 1624px;
+    max-width: 1170px;
     transition: transform 250ms ease-in;
     user-select: none;
 }
