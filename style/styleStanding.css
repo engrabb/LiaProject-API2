@@ -149,6 +149,9 @@ label {
     font-size: 14px;
 }
 
+#fileName::placeholder{
+    color: whitesmoke;
+}
 
 #leftContainer {
     height: 100%;
@@ -477,7 +480,7 @@ a {
     margin: 5px auto;
     -webkit-transition: all 0.3s ease-in-out;
     transition: all 0.3s ease-in-out;
-    background-color: white;
+    background-color: dodgerblue;
 }
 
 @media(max-width:960px) {
@@ -515,6 +518,7 @@ a {
 
     .nav-menu.active {
         left: 0;
+        gap: 0px;
     }
 }
 
