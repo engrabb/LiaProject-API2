@@ -92,7 +92,7 @@ function pageSize() {
     const size = document.getElementById('nav-btn').textContent;
     let pageS;
     console.log();
-    if (size === "Go to standing") {
+    if (size === "Portrait") {
         pageS = "1792x1024";
 
 

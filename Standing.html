@@ -108,7 +108,8 @@
     <div class="grid" id="container">
         <div class="output-arrows-dots">
             <div class="firstGrid">
-                <textarea id="editor" class="inOutSize" onkeyup="updatePreview()"></textarea>
+                <textarea id="editor" class="inOutSize" onkeyup="updatePreview()"
+                placeholder="Write your story here.. then click the generate button below to visualise your work!"></textarea>
                 <div class="outputRelative">
                     <div id="contentBox" class="inOutSize">
                         <div class="content-grid">
@@ -166,12 +167,13 @@
                 </div>
                 <select id="styleSelect" class="input">
                     <option value="Fantasy">Fantasy</option>
+                    <option value="Hyper-Cinema">Realism</option>
+                    <option value="Manga">Manga</option>
                     <option value="Dark-fantasy">Dark-fantasy</option>
                     <option value="Childish-fantasy">Childish fantasy</option>
                     <option value="Sci-fi">Sci-fi</option>
                     <option value="Pixel-art">Pixel-art</option>
                     <option value="Oil-painting">Oil-painting</option>
-                    <option value="Gore">Gore</option>
                 </select>
                 <div class="generateBtn">
                     <button id="generateButton" class="openClose-btn" onclick="postData()">Click to Generate</button>
@@ -181,7 +183,6 @@
                     <button id="newPageBtn" class="openClose-btn" onclick="creatNewPage()">New
                         Page</button>
                 </div>
-                <button onclick="showPic()">test button</button>
             </div>
         </div>
         <div class="forthGrid">

@@ -19,7 +19,7 @@
 .modal-pages {
     white-space: nowrap;
     padding: 50px;
-    max-width: 1624px;
+    max-width: 1170px;
     transition: transform 250ms ease-in;
     user-select: none;
 }
@@ -28,8 +28,8 @@
     display: inline-block;
     border: 2px solid black;
     list-style: none;
-    width: 737px;
-    height: 512px;  
+    width: 672px;
+    height: 468px;  
     margin-right: 50px;
     overflow: hidden;
     position: relative;
@@ -51,6 +51,13 @@
     height: 100%;
     width: 100%;
     z-index: -1;
+}
+.modal-page p,
+.modal-pageS p{
+    display: inline;
+    background: white;
+    border: 7px;
+    border-radius: 3px;
 }
 
 .modal-pageS img{
